@@ -76,6 +76,10 @@ build/
 
 # Native addon pre-built binaries
 src/native/*/bin/
+
+# Nix
+result
+result-*
 .claudeignore
 .mimocode
 docs/superpowers

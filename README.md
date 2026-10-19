@@ -41,6 +41,24 @@ yarn dev（开发）
 yarn build（构建）
 ```
 
+## NixOS / Nix
+
+仓库自带 flake，支持 NixOS 声明式安装与 `nix develop` 开发环境，详见 [nix/README.md](nix/README.md)。
+
+```nix
+# NixOS 配置：flake input + 模块
+inputs.vutronmusic.url = "github:stark81/VutronMusic";
+
+# 在模块中：
+imports = [ inputs.vutronmusic.nixosModules.default ];
+programs.vutronmusic.enable = true;
+```
+
+```bash
+nix develop              # 进入开发环境（之后执行 vutron-setup、yarn dev）
+nix build .#vutronmusic  # 构建（产物在 result/）
+```
+
 ## 开源许可
 
 本项目仅供个人学习研究使用，禁止用于商业及非法用途。
